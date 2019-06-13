@@ -16,10 +16,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "Counti"
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 app.config['JWT_AUTH_URL_RULE'] = '/login'
 # config JWT to expire within half an hour, default is 5 min
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
